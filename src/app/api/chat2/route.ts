@@ -39,7 +39,7 @@ Use estas informações atualizadas:
 ${contextInfo}
 `,
     },
-    ...(history || []).map((msg: any) => ({
+    ...(history || []).map((msg: { sender: string; text: string }) => ({
       role: msg.sender === "user" ? "user" : "assistant",
       content: msg.text,
     })),

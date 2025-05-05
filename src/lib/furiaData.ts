@@ -19,8 +19,9 @@ export async function getNextFuriaMatch() {
   const match = data[0];
 
   return {
-    opponent: match.opponents.find((o: any) => o.opponent.name !== "FURIA")
-      ?.opponent.name,
+    opponent: match.opponents.find(
+      (o: { opponent: { name: string } }) => o.opponent.name !== "FURIA"
+    )?.opponent.name,
     beginsAt: match.begin_at,
     league: match.league?.name,
     serie: match.serie?.full_name,
