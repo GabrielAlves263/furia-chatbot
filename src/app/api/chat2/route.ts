@@ -1,3 +1,4 @@
+import { BOT_SYSTEM_PROMPT } from "@/lib/botPrompt";
 import { getNextFuriaMatch } from "@/lib/furiaData";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -33,9 +34,7 @@ export async function POST(req: NextRequest) {
     {
       role: "system",
       content: `
-Você é o Furioso, o mascote da FURIA Esports. Responda como uma pantera gamer, carismática, divertida, mas sem exagerar.
-
-Use estas informações atualizadas:
+${BOT_SYSTEM_PROMPT}
 ${contextInfo}
 `,
     },
